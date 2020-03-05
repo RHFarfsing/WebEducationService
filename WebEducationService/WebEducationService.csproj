@@ -11,6 +11,8 @@
     <Compile Remove="Migrations\20200305191750_added_student_class.Designer.cs" />
     <Compile Remove="Migrations\20200305191946_added_student_class.cs" />
     <Compile Remove="Migrations\20200305191946_added_student_class.Designer.cs" />
+    <Compile Remove="Migrations\20200305210527_added_StudentClassRel_class.cs" />
+    <Compile Remove="Migrations\20200305210527_added_StudentClassRel_class.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebEducationService.Data;
 
 namespace WebEducationService.Migrations
 {
     [DbContext(typeof(EdDbContext))]
-    partial class EdDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200305205030_added_class_class")]
+    partial class added_class_class
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,48 +92,11 @@ namespace WebEducationService.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("WebEducationService.Models.StudentClassRel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ClassId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClassId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("studentClassRels");
-                });
-
             modelBuilder.Entity("WebEducationService.Models.Student", b =>
                 {
                     b.HasOne("WebEducationService.Models.Major", "Major")
                         .WithMany()
                         .HasForeignKey("MajorId");
-                });
-
-            modelBuilder.Entity("WebEducationService.Models.StudentClassRel", b =>
-                {
-                    b.HasOne("WebEducationService.Models.Class", "Class")
-                        .WithMany()
-                        .HasForeignKey("ClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebEducationService.Models.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

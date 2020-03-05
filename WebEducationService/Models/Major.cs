@@ -11,7 +11,6 @@ namespace WebEducationService.Models {
         [Required]
         public string Description { get; set; }
         public int MinSat { get; set; }
-        public virtual List<Student> Students { get; set; }
         public Major() { }
     }
 }

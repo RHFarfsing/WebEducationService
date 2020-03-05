@@ -14,16 +14,8 @@ namespace WebEducationService.Data
 
         public DbSet<Major> Majors { get; set; }
         public DbSet<Student> Students { get; set; }
-        protected override void OnModelCreating(ModelBuilder model) {
-            model.Entity<Student>(e => {
-                e.HasKey(x => x.Id);
-                e.Property(x => x.Firstname).HasMaxLength(30).IsRequired();
-                e.Property(x => x.Lastname).HasMaxLength(30).IsRequired();
-                e.Property(x => x.SAT);
-                e.Property(x => x.GPA);
-                e.HasOne(x => x.Major).WithMany(x => x.Students).HasForeignKey(x => x.MajorId).OnDelete(DeleteBehavior.Restrict);
-            });
-        }
+        public DbSet<Class> Classes { get; set; }
+        public DbSet<StudentClassRel> studentClassRels { get; set; }
     }
 }
 
