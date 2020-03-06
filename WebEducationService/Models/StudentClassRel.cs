@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WebEducationService.Models {
@@ -9,11 +10,10 @@ namespace WebEducationService.Models {
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int ClassId { get; set; }
-        [StringLength(10)]
-        public string CLassGradeValue { get; set; }
+        [JsonIgnore]
         public virtual Student Student { get; set; }
+        [JsonIgnore]
         public virtual Class Class { get; set; }
-        public virtual ClassGrade ClassGrade { get; set; }
         public StudentClassRel() { }
     }
 }
