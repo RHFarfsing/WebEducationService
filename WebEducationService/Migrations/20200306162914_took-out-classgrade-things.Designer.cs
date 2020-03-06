@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebEducationService.Data;
 
 namespace WebEducationService.Migrations
 {
     [DbContext(typeof(EdDbContext))]
-    partial class EdDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200306162914_took-out-classgrade-things")]
+    partial class tookoutclassgradethings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
